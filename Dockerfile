@@ -3,7 +3,7 @@ FROM quay.io/yeebase/debian-base:jessie
 ENV PROXYSQL_VERSION 1.4.9
 
 RUN set -x && \
-    clean-install ca-certificates curl libssl1.0.0 && \
+    clean-install ca-certificates curl libssl1.0.0 mysql-client && \
     curl -fsSL https://github.com/sysown/proxysql/releases/download/v${PROXYSQL_VERSION}/proxysql_${PROXYSQL_VERSION}-dbg-debian9_amd64.deb -o /tmp/proxysql.deb && \
     dpkg -i /tmp/proxysql.deb && \
     rm -rf /tmp/*
